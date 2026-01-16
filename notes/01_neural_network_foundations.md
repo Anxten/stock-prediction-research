@@ -7,7 +7,7 @@ Neural Networks are essentially function approximators. They take inputs, pass t
 ## 2. Backpropagation (The Calculus Part)
 This is how the network learns. It minimizes the error (Loss Function) by adjusting weights.
 - It uses the **Chain Rule** from Calculus: $\frac{dy}{dx} = \frac{dy}{du} \cdot \frac{du}{dx}$
-- We calculate the gradient of the Loss with respect to each weight to find the direction of steepest descent.
+- We calculate the gradient of the Loss with respect to each weight. Since the gradient points in the direction of steepest ascent, we move in the opposite direction (negative gradient) to minimize error.
 
 ## 3. ReLU Activation
 - **Problem with Sigmoid:** Can cause Vanishing Gradient (derivatives become near zero).
