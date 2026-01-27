@@ -3,15 +3,21 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-# Virtual Environment
+# Virtual Environments
 venv/
+venv_win/
+venv_linux/
 env/
+.env
 
-# Data
+# Model & Data
 data/
+*.csv
+*.pkl
 
 # Jupyter Notebook
 .ipynb_checkpoints/
 
-# IDE
+# IDE & OS
 .vscode/
+.DS_Store
