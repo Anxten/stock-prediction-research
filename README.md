@@ -1,20 +1,24 @@
-# 📈 BBRI Stock Price Prediction using LSTM
+# 📈 AI Multi-Stock Prediction App
 
 ![Python](https://img.shields.io/badge/Python-3.10%2B-blue)
 ![PyTorch](https://img.shields.io/badge/PyTorch-Deep%20Learning-red)
+![Streamlit](https://img.shields.io/badge/Streamlit-Web%20App-FF4B4B)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
-A Time-Series Forecasting project utilizing **Long Short-Term Memory (LSTM)** neural networks to predict the daily closing price of **Bank Rakyat Indonesia (BBRI.JK)** stocks. Built with PyTorch.
+A Time-Series Forecasting project utilizing **Long Short-Term Memory (LSTM)** neural networks to predict daily closing prices of **ANY stock** (BBRI, BBCA, AAPL, TSLA, etc.). Now features an interactive web dashboard built with Streamlit.
 
 ## 📌 Project Overview
-Predicting stock market trends is challenging due to the volatile and non-linear nature of financial data. This project implements a Deep Learning approach using a Stacked LSTM architecture to capture temporal dependencies in historical stock prices.
+![App Screenshot](assets/app_screenshot.png)
+Predicting stock market trends is challenging due to the volatile and non-linear nature of financial data. This project implements a Deep Learning approach using a Stacked LSTM architecture to capture temporal dependencies.
 
-The model is trained on historical data (fetched via Yahoo Finance) and is capable of:
-1.  Analyzing trends from the past 60 days.
-2.  Predicting the closing price for the next trading day (H+1).
+**Key Features:**
+* **Multi-Ticker Support:** Predict Indonesian stocks (.JK), US stocks, or Crypto.
+* **Interactive Dashboard:** Real-time data fetching and visualization.
+* **Deep Learning Core:** Trained on historical data to predict H+1 prices.
+* **Trend Analysis:** Visualizes 1-year price history and statistical metrics.
 
 ## 🧠 Model Architecture
-The core of this project is a Recurrent Neural Network (RNN) specialized for sequence prediction:
+The core is a Recurrent Neural Network (RNN) specialized for sequence prediction:
 * **Input:** 60-day sliding window of Normalized Closing Prices.
 * **Hidden Layers:** 2 Stacked LSTM Layers (50 units each).
 * **Output Layer:** Fully Connected (Linear) Layer.
@@ -24,47 +28,57 @@ The core of this project is a Recurrent Neural Network (RNN) specialized for seq
 ## 📂 Project Structure
 
 ```bash
+├── assets/                 # Images for documentation
 ├── data/                   # Raw and processed data (csv)
 ├── models/                 # Saved PyTorch model weights (.pth)
-├── notebooks/              # Jupyter Notebooks for step-by-step process
-│   ├── 01_data_collection.ipynb    # Fetching data from yfinance
-│   ├── 02_data_preprocessing.ipynb # Scaling & Sliding Window logic
-│   ├── 03_model_training.ipynb     # Building & Training LSTM
-│   └── 04_forecasting.ipynb        # Predicting future price (Real-time)
+├── notebooks/              # Jupyter Notebooks for research & training
+│   ├── 01_data_collection.ipynb
+│   ├── 02_data_preprocessing.ipynb
+│   ├── 03_model_training.ipynb     # Run this to retrain the model
+│   └── 04_forecasting.ipynb
+├── app.py                  # Main Streamlit Web Application
 ├── .gitignore
 ├── README.md
 └── requirements.txt
 ```
 
-## 📊 Results
-The model was evaluated using **Root Mean Squared Error (RMSE)** and visual inspection of the test data (20% split).
+## 📊 Evaluation
+The model was evaluated using **Root Mean Squared Error (RMSE)** on unseen test data (20% split).
 
 ![Prediction Visualization](assets/prediction_graph.png)
 
-> **Current Performance:** The model successfully captures major trend reversals and momentum, showing a convergent loss curve during training.
+> **Performance:** The model demonstrates strong generalization capabilities, effectively capturing trend reversals without significant overfitting.
 
 ## 🚀 How to Run
 
 ### 1. Clone the Repository
 
 ```bash
-git clone [https://github.com/username/stock-prediction-research.git](https://github.com/username/stock-prediction-research.git)
+git clone https://github.com/Anxten/stock-prediction-research.git
 cd stock-prediction-research
 ```
 
 ### 2. Install Dependencies
+Supports Windows, Linux (Fedora/Ubuntu), and Mac.
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 3. Run the Notebooks
-You can run the notebooks in order using VS Code or Jupyter Lab. To see the prediction for tomorrow's price immediately:
-* Open `notebooks/04_forecasting.ipynb`
-* Run all cells.
+### 3. Run the Web App (Recommended)
+Launch the interactive dashboard:
+
+```bash
+streamlit run app.py
+```
+
+### 4. Retrain the Model (Optional)
+If you want to experiment with the model architecture:
+* Open `notebooks/03_model_training.ipynb`
+* Run all cells to generate a new `.pth` file in the `models/` directory.
 
 ## ⚠️ Disclaimer
-This project is for **educational and research purposes only**. The predictions generated by this AI model should **NOT** be taken as professional financial advice or a recommendation to buy/sell assets. Always do your own research (DYOR).
+This project is for **educational and research purposes only**. The predictions generated by this AI model should **NOT** be taken as professional financial advice. Always do your own research (DYOR).
 
 ## 👤 Author
 **Allan**
