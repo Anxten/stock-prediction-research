@@ -58,21 +58,36 @@ git clone https://github.com/Anxten/stock-prediction-research.git
 cd stock-prediction-research
 ```
 
-### 2. Install Dependencies
-Supports Windows, Linux (Fedora/Ubuntu), and Mac.
+### 2. Create Virtual Environment (Recommended)
+It is highly recommended to use a virtual environment to avoid conflicts.
+
+**Windows:**
+```bash
+python -m venv venv
+.\venv\Scripts\activate
+```
+
+**Linux / Mac:**
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+### 3. Install Dependencies
+Once the virtual environment is active (you should see `(venv)` in your terminal):
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 3. Run the Web App (Recommended)
+### 4. Run the Web App (Recommended)
 Launch the interactive dashboard:
 
 ```bash
 streamlit run app.py
 ```
 
-### 4. Retrain the Model (Optional)
+### 5. Retrain the Model (Optional)
 If you want to experiment with the model architecture:
 * Open `notebooks/03_model_training.ipynb`
 * Run all cells to generate a new `.pth` file in the `models/` directory.
